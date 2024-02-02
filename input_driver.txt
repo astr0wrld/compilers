@@ -1,0 +1,60 @@
+fun main() {
+    a = 1
+    print(a)
+
+    a = false
+    print(a)
+
+    a = "string 1"
+    print(a)
+
+    print("")
+
+    if a == "2" {
+        print("FAIL 1")
+    }
+
+    if a == "string 1" {
+        print("OK 1")
+    }
+
+    if 0 == 1 {
+        print("FAIL 2")
+    }
+
+    if true {
+        print("OK 2")
+    }
+
+    if false {
+        print("FAIL 3")
+    }
+
+    if (true) {
+        print("OK 3")
+    }
+
+    if 0 > 1 {
+            print("FAIL 4")
+        }
+
+    a = (1 == 1)
+    if a {
+        print("OK 4")
+    }
+
+    print("")
+
+    a = 0
+    a = a + 1
+    print(a)
+    print("")
+
+    i = 0
+    while i < 3 {
+        i = i + 1
+        print(i) 
+    }
+    print("")
+
+}

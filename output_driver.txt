@@ -1,0 +1,141 @@
+Prorgam
+
+Assign
+      IdentExpression(a)
+      NumberExpression(1)
+
+--------------
+
+PrintExpression
+      IdentExpression(a)
+
+--------------
+
+Assign
+      IdentExpression(a)
+      BooleanExpression(False)
+
+--------------
+
+PrintExpression
+      IdentExpression(a)
+
+--------------
+
+Assign
+      IdentExpression(a)
+      StringExpression(string 1)
+
+--------------
+
+PrintExpression
+      IdentExpression(a)
+
+--------------
+
+PrintExpression
+      StringExpression()
+
+--------------
+
+IfStatement
+      PrintExpression
+            StringExpression(FAIL 1)
+
+--------------
+
+IfStatement
+      PrintExpression
+            StringExpression(OK 1)
+
+--------------
+
+IfStatement
+      PrintExpression
+            StringExpression(FAIL 2)
+
+--------------
+
+IfStatement
+      PrintExpression
+            StringExpression(OK 2)
+
+--------------
+
+IfStatement
+      PrintExpression
+            StringExpression(FAIL 3)
+
+--------------
+
+IfStatement
+      PrintExpression
+            StringExpression(OK 3)
+
+--------------
+
+IfStatement
+      PrintExpression
+            StringExpression(FAIL 4)
+
+--------------
+
+Assign
+      IdentExpression(a)
+      BraceExpression
+            EqualExpression
+                  NumberExpression(1)
+                  NumberExpression(1)
+
+--------------
+
+IfStatement
+      PrintExpression
+            StringExpression(OK 4)
+
+--------------
+
+PrintExpression
+      StringExpression()
+
+--------------
+
+Assign
+      IdentExpression(a)
+      NumberExpression(0)
+
+--------------
+
+Assign
+      IdentExpression(a)
+      AddExpression
+            IdentExpression(a)
+            NumberExpression(1)
+
+--------------
+
+PrintExpression
+      IdentExpression(a)
+
+--------------
+
+PrintExpression
+      StringExpression()
+
+--------------
+
+Assign
+      IdentExpression(i)
+      NumberExpression(0)
+
+--------------
+
+WhileStatement
+
+--------------
+
+PrintExpression
+      StringExpression()
+
+--------------
+
