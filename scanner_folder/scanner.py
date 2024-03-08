@@ -1,6 +1,19 @@
-import re
-
 from scanner_folder.classes import ALPHABET, TOKENS, get_token, Lexem, Table
+
+def split(text: str, delimeters=' \t\n'):
+    result = []
+    current = ''
+    for char in text:
+        if char not in delimeters:
+            current += char
+        elif current:
+            result.append(current)
+            current = ''
+        
+    if current:
+        result.append(current)
+
+    return result     
 
 
 class Scanner:
@@ -81,9 +94,9 @@ class Scanner:
             next_word = self.traversal(word)
             if next_word is not None:
                 self.scan_word(next_word)
-
+    
     def scan(self, text: str):
-        words = re.split('(\".*?\")|\s+', text)
+        words = split(text)
         words = [word for word in words if word is not None and word != '']
         for i in range(len(words)):
             self.scan_word(words[i])
