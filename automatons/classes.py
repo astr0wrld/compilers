@@ -97,7 +97,7 @@ class DFA(BasicAut):
         for state in self.states:
             if state == self.root:
                 print("root state:", end=" ")
-            if state == self.trap:
+            elif state == self.trap:
                 print("trap state:", end=" ")
             else:
                 print("state:", end=" ")
@@ -167,7 +167,7 @@ class NFA(BasicAut):
         for state in self.states:
             if state == self.root:
                 print("root state:", end=" ")
-            if state == self.trap:
+            elif state == self.trap:
                 print("trap state:", end=" ")
             else:
                 print("state:", end=" ")
