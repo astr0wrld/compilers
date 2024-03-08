@@ -96,14 +96,16 @@ class DFA(BasicAut):
         print("alphabet:", *sorted(self.alphabet))
         for state in self.states:
             if state == self.root:
-                print("root:", end=" ")
+                print("root state:", end=" ")
             if state == self.trap:
-                print("trap:", end=" ")
+                print("trap state:", end=" ")
+            else:
+                print("state:", end=" ")
             print(state, *state.terminals)
             print("transitions: ", end=" ")
             for letter, to in sorted(state.transitions.items()):
                 print(f"{letter}: {str(to)}", end=" ")
-            print()
+            print('\n')
 
 
 class NFA(BasicAut):
@@ -158,3 +160,21 @@ class NFA(BasicAut):
                     first.eps_closure.add(tmp)
                 first.eps_closure.remove(second)
         self.del_unreach()
+
+    def print(self):
+        print("number of states:", len(self.states))
+        print("alphabet:", *sorted(self.alphabet))
+        for state in self.states:
+            if state == self.root:
+                print("root state:", end=" ")
+            if state == self.trap:
+                print("trap state:", end=" ")
+            else:
+                print("state:", end=" ")
+            print(state, *state.terminals)
+            print("transitions: ", end=" ")
+            for letter, to in sorted(state.transitions.items()):
+                print(f"{letter}: {[str(vertex) for vertex in to]}", end=" ")
+            print()
+            print("eps_closure: ", [str(vertex) for vertex in state.eps_closure])
+            print('\n')

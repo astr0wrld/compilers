@@ -5,6 +5,9 @@ class BasicNode:
 
     def make_terminal(self, token: str):
         self.terminals.add(token)
+    
+    def __str__(self):
+        return hex(id(self))[-4:]
 
 
 class DFA_Node(BasicNode):

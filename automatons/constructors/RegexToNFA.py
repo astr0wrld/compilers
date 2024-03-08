@@ -6,7 +6,7 @@ from regex.nodes.UnaryRegexNode import UnaryRegexNode
 from regex.nodes.BinaryRegexNode import BinaryRegexNode, BinaryOperationType
 
 
-def RegexToNFA(regex: RegexNode, terminal=None):
+def RegexToNFA(regex: RegexNode, terminal=None) -> NFA:
     if isinstance(regex, UnaryRegexNode):
         nfa = nfa_unary(regex)
     elif isinstance(regex, LeafRegexNode):
