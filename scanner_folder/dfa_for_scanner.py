@@ -15,10 +15,33 @@ def var_regex() -> BinaryRegexNode:
     var_regex = BinaryRegexNode(letters, UnaryRegexNode(letters), BinaryOperationType.CONCATENATION)
     return var_regex
 
+def space_regex() -> BinaryRegexNode:
+    spaces = LeafRegexNode()
+    for space in ALPHABET['SPACE']:
+        spaces = BinaryRegexNode(spaces, LeafRegexNode(space), BinaryOperationType.UNITE)
+    space_reg = BinaryRegexNode(spaces, UnaryRegexNode(spaces), BinaryOperationType.CONCATENATION)
+    return space_reg
+
+def num_regex() -> BinaryRegexNode:
+    nums = LeafRegexNode()
+    for num in ALPHABET['NUM']:
+        if num != '0':
+            nums = BinaryRegexNode(nums, LeafRegexNode(num), BinaryOperationType.UNITE)
+    num_reg = BinaryRegexNode(nums,
+                                UnaryRegexNode(BinaryRegexNode(nums, LeafRegexNode('0'), BinaryOperationType.UNITE)),
+                                BinaryOperationType.CONCATENATION)
+    return num_reg
+
+def str_regex():
+    symbols = BinaryRegexNode(var_regex(), num_regex(), BinaryOperationType.UNITE)
+    return BinaryRegexNode(LeafRegexNode("'"),
+                           BinaryRegexNode(UnaryRegexNode(symbols), LeafRegexNode("'"), BinaryOperationType.CONCATENATION),
+                           BinaryOperationType.CONCATENATION)
 
 TOKENS_REGEXPS = {
+    'SPACE': space_regex(),
     'VARNAME': var_regex(),
-    'NUM': None,
+    'NUM': num_regex(),
     'L_FIGURE_BR': LeafRegexNode(ALPHABET['L_FIGURE_BR']),
     'R_FIGURE_BR': LeafRegexNode(ALPHABET['R_FIGURE_BR']),
     'L_ROUND_BR': LeafRegexNode(ALPHABET['L_ROUND_BR']),
@@ -32,7 +55,7 @@ TOKENS_REGEXPS = {
     'ASSIGN': LeafRegexNode(ALPHABET['ASSIGN']),
     'EQUAL': BinaryRegexNode(LeafRegexNode(ALPHABET['ASSIGN']), LeafRegexNode(ALPHABET['ASSIGN']), BinaryOperationType.CONCATENATION),
     'SLASH': LeafRegexNode(ALPHABET['SLASH']),
-    'STR': None,
+    'STR': str_regex(),
     'BOOL': None,
     'KEYWORD': None
 }

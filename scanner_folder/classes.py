@@ -4,6 +4,7 @@ from automatons.classes import DFA
 
 
 ALPHABET = {
+    'SPACE': ' \n\t',
     'STR': 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
     'NUM': '0123456789',
     'L_FIGURE_BR': '{',
@@ -30,6 +31,7 @@ KEYWORDS = [
 ]
 
 class TOKENS(Enum):
+    SPACE = 'SPACE'
     VARNAME = 'VARNAME'
     NUM = 'NUM'
     L_FIGURE_BR = 'L_FIGURE_BR'
